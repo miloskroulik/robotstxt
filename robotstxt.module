@@ -1,5 +1,5 @@
 <?php
-//$ID: $
+// $ID$
 
 /**
  * Implementation of hook_help().
