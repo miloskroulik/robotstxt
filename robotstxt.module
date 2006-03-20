@@ -12,6 +12,8 @@ function robotstxt_help($section) {
     case 'admin/help#robotstxt': 
       $output = t('<p>In a multisite environment, there is no mechanism for having a separate robots.txt file for each site. This module addresses that need by letting you administer the robots.txt file from the settings interface.</p>');
       break;
+    case 'admin/settings/robotstxt':
+      break;
   }
   return $output;
 }
@@ -48,12 +50,16 @@ function robotstxt_menu($maycache) {
  * You can edit the robots.txt for your site under admin/settings/robotstxt
  */
 function robotstxt_settings() {
-  return  form_textarea(t('Value for robots.txt'), 'robotstxt', variable_get('robotstxt', $robotstxt), 60, 20, '', '', FALSE);
+  return array('robotstxt' => array('#type' => 'textarea',
+                                    '#title' => t('Value for robots.txt'),
+                                    '#default_value' => variable_get('robotstxt', ''),
+                                    '#cols' => 60, '#rows' => 20, '#required' => false));
 }
 
 /**
  * Serve up the robots.txt file stored in the db.
  */
 function robotstxt_robots() {
+  drupal_set_header("Content-type: text/plain");
   print check_plain(variable_get('robotstxt', ''));
 }

@@ -1,8 +1,3 @@
-#This robots.txt file prevents 403s caused by search engines crawling admin pages
-#
-#Please place this in the root directory of your site and ensure that the Disallow
-#contains the correct relative URL.
-
 User-agent: *
 Disallow: /node/
 Disallow: /database/
