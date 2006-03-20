@@ -1,0 +1,65 @@
+<?php
+// $Id$
+
+/**
+ * Implementation of hook_help().
+ */
+function robotstxt_help($section) {
+  switch ($section) {
+    case 'admin/modules#description':
+      $output = t("Individual robots.txt file for a site in a multisite environment.");
+      break;
+    case 'admin/help#robotstxt': 
+      $output = t('<p>In a multisite environment, there is no mechanism for having a separate robots.txt file for each site. This module addresses that need by letting you administer the robots.txt file from the settings interface.</p>');
+      break;
+    case 'admin/settings/robotstxt':
+      break;      
+  }
+  return $output;
+}
+
+/**
+ * Loads the robots.txt file found in the robotstxt directory.
+ * This is only done once, if the robotstxt variable isn't stored yet.
+ */
+function robotstxt_init() {
+  if(!$robots = variable_get('robotstxt', FALSE)) {
+    variable_set('robotstxt', check_plain(file_get_contents((drupal_get_path('module', 'robotstxt'). '/robots.txt'))));
+  }
+}
+
+/**
+ * Defines the robots.txt path as a callback.
+ */
+function robotstxt_menu($maycache) {
+  $items = array();
+  if ($maycache) {
+    $items[] = array(
+      'path' => 'robots.txt',
+      'access' => TRUE,
+      'callback' => 'robotstxt_robots',
+      'type' => MENU_CALLBACK,
+      'title' => 'robots.txt'
+    );
+  }
+
+  return $items;
+}
+
+/**
+ * You can edit the robots.txt for your site under admin/settings/robotstxt
+ */
+function robotstxt_settings() {
+  return array('robotstxt' => array('#type' => 'textarea',
+                                    '#title' => t('Value for robots.txt'),
+                                    '#default_value' => variable_get('robotstxt', ''),
+                                    '#cols' => 60, '#rows' => 20, '#required' => false));
+}
+
+/**
+ * Serve up the robots.txt file stored in the db.
+ */
+function robotstxt_robots() {
+  drupal_set_header("Content-type: text/plain");
+  print check_plain(variable_get('robotstxt', ''));
+}
