@@ -63,4 +63,5 @@ function robotstxt_settings() {
 function robotstxt_robots() {
   drupal_set_header("Content-type: text/plain");
   print check_plain(variable_get('robotstxt', ''));
+  exit;
 }
