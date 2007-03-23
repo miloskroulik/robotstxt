@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /database/
+Disallow: /includes/
+Disallow: /misc/
+Disallow: /modules/
+Disallow: /sites/
+Disallow: /themes/
+Disallow: /admin/
+Disallow: /user/register
+Disallow: /user/password
