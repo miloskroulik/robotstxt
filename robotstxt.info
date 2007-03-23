@@ -1,0 +1,1 @@
+; $Id $name = Robotstxt - patched by TRNdescription = "Generates the robots.txt file dynamically and gives you the chance to edit it, on a per-site basis, from the web UI."
