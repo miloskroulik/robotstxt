@@ -1,4 +1,4 @@
-# $Id $
+# $Id$
 #
 # This file aims to prevent the crawling and indexing of certain parts of your site by
 # webcrawlers and spiders run by sites like Yahoo! and Google. By telling
