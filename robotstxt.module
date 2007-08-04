@@ -73,5 +73,12 @@ function robotstxt_admin_settings() {
 function robotstxt_robots() {
   drupal_set_header("Content-type: text/plain");
   print check_plain(variable_get('robotstxt', ''));
+
+  // Hook other modules for adding additional lines to robots.txt
+  $lines = module_invoke_all('robotstxt');
+  foreach ($lines as $line) {
+    print check_plain($line) . "\n";
+  }
+
   exit;
 }
