@@ -1,14 +1,14 @@
 # $Id$
 #
-# LANGUAGE translation of Drupal (robotstxt.module)
+# LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
-# Generated from file: 
+# Generated from file: robotstxt.module,v 1.2.2.2 2007/08/04 17:52:10 hass
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2007-04-25 12:34+0200\n"
+"POT-Creation-Date: 2007-08-04 19:55+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Value for robots.txt"
 msgstr ""
 
-#: robotstxt.module:0 robotstxt.info:0
+#: robotstxt.module:0
 msgid "robotstxt"
 msgstr ""
 
