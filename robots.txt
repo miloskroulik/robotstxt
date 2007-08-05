@@ -1,29 +1,25 @@
 # $Id$
 #
-# This file aims to prevent the crawling and indexing of certain parts of your site by
-# webcrawlers and spiders run by sites like Yahoo! and Google. By telling
-# these "robots" where not to go on your site, you save bandwidth and server
-# resources, and the quality of their crawling and indexing is improved as well.
+# robots.txt
+#
+# This file is to prevent the crawling and indexing of certain parts
+# of your site by web crawlers and spiders run by sites like Yahoo!
+# and Google. By telling these "robots" where not to go on your site,
+# you save bandwidth and server resources.
+#
+# This file will be ignored unless it is at the root of your host:
+# Used:    http://example.com/robots.txt
+# Ignored: http://example.com/site/robots.txt
 #
 # For more information about the robots.txt standard, see:
 # http://www.robotstxt.org/wc/robots.html
 #
-# To stop a polite robot from indexing an exampledir,
-# add an uncommented line (without #), like the following:
-#
-# user-agent: polite-bot
-# Disallow: /exampledir/
-
-# A list of known 'bots can be found at:
-# http://www.robotstxt.org/wc/active/html/index.html
-#
-# See this site for syntax checking:
+# For syntax checking, see:
 # http://www.sxw.org.uk/computing/robots/check.html
 
 User-agent: *
 Crawl-delay: 10
 # Directories
-Disallow: /files/
 Disallow: /database/
 Disallow: /includes/
 Disallow: /misc/
@@ -38,13 +34,14 @@ Disallow: /xmlrpc.php
 Disallow: /cron.php
 Disallow: /update.php
 Disallow: /install.php
+Disallow: /INSTALL.txt
 Disallow: /INSTALL.mysql.txt
 Disallow: /INSTALL.pgsql.txt
 Disallow: /CHANGELOG.txt
 Disallow: /MAINTAINERS.txt
 Disallow: /LICENSE.txt
 Disallow: /UPGRADE.txt
-# Paths (Clean URLs)
+# Paths (clean URLs)
 Disallow: /admin/
 Disallow: /aggregator/
 Disallow: /comment/reply/
@@ -54,6 +51,7 @@ Disallow: /node/add/
 Disallow: /search/
 Disallow: /user/register/
 Disallow: /user/password/
+Disallow: /user/login/
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=aggregator/
@@ -64,3 +62,4 @@ Disallow: /?q=node/add/
 Disallow: /?q=search/
 Disallow: /?q=user/password/
 Disallow: /?q=user/register/
+Disallow: /?q=user/login/
