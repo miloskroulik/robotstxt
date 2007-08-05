@@ -7,22 +7,11 @@
 function robotstxt_help($section) {
   switch ($section) {
     case 'admin/help#robotstxt': 
-      $output = t('<p>In a multisite environment, there is no mechanism for having a separate robots.txt file for each site. This module addresses that need by letting you administer the robots.txt file from the settings interface.</p>');
+      return '<p>'. t('In a multisite environment, there is no mechanism for having a separate robots.txt file for each site. This module addresses that need by letting you administer the robots.txt file from the settings interface.') .'</p>';
       break;
     case 'admin/settings/robotstxt':
-      $output = t('See http://www.robotstxt.org/ for more information concerning how to write your robots.txt file.');
+      return t('See http://www.robotstxt.org/ for more information concerning how to write your robots.txt file.');
       break;      
-  }
-  return $output;
-}
-
-/**
- * Loads the robots.txt file found in the robotstxt directory.
- * This is only done once, if the robotstxt variable isn't stored yet.
- */
-function robotstxt_init() {
-  if(!$robots = variable_get('robotstxt', FALSE)) {
-    variable_set('robotstxt', check_plain(file_get_contents((drupal_get_path('module', 'robotstxt'). '/robots.txt'))));
   }
 }
 
@@ -37,7 +26,6 @@ function robotstxt_menu($maycache) {
       'access' => TRUE,
       'callback' => 'robotstxt_robots',
       'type' => MENU_CALLBACK,
-      'title' => 'robots.txt'
     );
     $items[] = array(
       'path' => 'admin/settings/robotstxt',
