@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: German translation for robotstxt module\n"
 "POT-Creation-Date: 2007-04-25 12:34+0200\n"
-"PO-Revision-Date: 2007-08-05 11:54+0100\n"
+"PO-Revision-Date: 2007-10-20 02:08+0100\n"
 "Last-Translator: Alexander Hass\n"
 "Language-Team: Alexander Hass\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "In einer Umgebung mit mehreren Webseiten gibt es keine Möglichkeit getr
 msgid "See http://www.robotstxt.org/ for more information concerning how to write your robots.txt file."
 msgstr "Weitere Informationen zum Aufbau einer robots.txt Datei befinden sich auf http://www.robotstxt.org/."
 
-#: robotstxt.module:32
+#: robotstxt.module:32;85;94
 msgid "RobotsTxt"
 msgstr "RobotsTxt"
 
@@ -38,6 +38,14 @@ msgstr "Verwalten der robots.txt Datei."
 #: robotstxt.module:49
 msgid "Value for robots.txt"
 msgstr "Wert für robots.txt"
+
+#: robotstxt.module:87
+msgid "<a href=\"!clean_url\">Clean URLs</a> are mandatory for this module."
+msgstr "<a href=\"!clean_url\">Lesbare URLs</a> sind zwingend notwendig für dieses Modul."
+
+#: robotstxt.module:96
+msgid "RobotsTxt module works only if you remove the existing robots.txt file in your website root."
+msgstr "Damit das RobotsTxt Modul einwandfrei funktioniert muss die vorhandene robots.txt Datei im Stammverzeichnis der Website entfernt werden."
 
 #: robotstxt.module:0
 msgid "robotstxt"
