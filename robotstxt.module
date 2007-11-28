@@ -23,7 +23,7 @@ function robotstxt_menu($maycache) {
   if ($maycache) {
     $items[] = array(
       'path' => 'robots.txt',
-      'access' => TRUE,
+      'access' => user_access('access content'),
       'callback' => 'robotstxt_robots',
       'type' => MENU_CALLBACK,
     );
