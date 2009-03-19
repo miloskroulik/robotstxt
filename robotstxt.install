@@ -29,7 +29,6 @@ function robotstxt_requirements($phase) {
 
   switch ($phase) {
     case 'install' :
-    case 'runtime' :
       // Module cannot work without Clean URLs.
       if (!variable_get('clean_url', 0)) {
         $requirements['robotstxt_cleanurl'] = array(
@@ -38,7 +37,9 @@ function robotstxt_requirements($phase) {
           'value' => $t('<a href="!clean_url">Clean URLs</a> are mandatory for this module.', array('!clean_url' => url('admin/settings/clean-urls'))),
         );
       }
+      break;
 
+    case 'runtime' :
       // Webservers prefer the robots.txt file on disk and does not allow menu path overwrite. 
       if (file_exists('./robots.txt')) {
         $requirements['robotstxt_file'] = array(
@@ -47,6 +48,7 @@ function robotstxt_requirements($phase) {
           'value' => $t('RobotsTxt module works only if you remove the existing robots.txt file in your website root.'),
         );
       }
+      break;
   }
   return $requirements;
 }
