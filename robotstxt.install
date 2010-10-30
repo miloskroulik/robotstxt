@@ -28,7 +28,6 @@ function robotstxt_requirements($phase) {
   $t = get_t();
 
   switch ($phase) {
-    case 'install' :
     case 'runtime' :
       // Module cannot work without Clean URLs.
       if (!variable_get('clean_url', 0)) {
