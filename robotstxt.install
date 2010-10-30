@@ -39,7 +39,7 @@ function robotstxt_requirements($phase) {
         );
       }
 
-      // Webservers prefer the robots.txt file on disk and does not allow menu path overwrite. 
+      // Webservers prefer the robots.txt file on disk and does not allow menu path overwrite.
       if (file_exists('./robots.txt')) {
         $requirements['robotstxt_file'] = array(
           'title' => $t('RobotsTxt'),
@@ -49,4 +49,13 @@ function robotstxt_requirements($phase) {
       }
   }
   return $requirements;
+}
+
+/**
+ * Automatically add the 'edit robots.txt' permission to granted users.
+ */
+function robotstxt_update_6100() {
+  $ret = array();
+  $ret[] = update_sql("UPDATE {permission} SET perm = REPLACE(perm, 'administer site configuration', 'administer site configuration, administer robots.txt') WHERE perm LIKE '%administer site configuration%'");
+  return $ret;
 }

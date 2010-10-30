@@ -20,6 +20,13 @@ function robotstxt_help($path, $arg) {
 }
 
 /**
+ * Implementation of hook_perm().
+ */
+function robotstxt_perm() {
+  return array('administer robots.txt');
+}
+
+/**
  * Implementation of hook_menu().
  */
 function robotstxt_menu() {
@@ -33,7 +40,7 @@ function robotstxt_menu() {
     'description' => 'Manage your robots.txt file.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('robotstxt_admin_settings'),
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('administer robots.txt'),
     'file' => 'robotstxt.admin.inc',
   );
 
