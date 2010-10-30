@@ -51,10 +51,20 @@ function robotstxt_requirements($phase) {
 }
 
 /**
- * Automatically add the 'edit robots.txt' permission to granted users.
+ * Automatically add the 'administer robots.txt' permission to granted users.
  */
 function robotstxt_update_6100() {
   $ret = array();
-  $ret[] = update_sql("UPDATE {permission} SET perm = REPLACE(perm, 'administer site configuration', 'administer site configuration, administer robots.txt') WHERE perm LIKE '%administer site configuration%'");
-  return $ret;
+
+  $res = db_query('SELECT rid, perm FROM {permission}');
+  $perms = array();
+  while ($p = db_fetch_object($res)) {
+    $perm = $p->perm;
+    $perm = preg_replace('/administer site configuration/', 'administer site configuration, administer robots.txt', $perm);
+    $perms[$p->rid] = $perm;
+  }
+
+  foreach ($perms as $key => $value) {
+    db_query("UPDATE {permission} SET perm = '%s' WHERE rid = %d", $value, $key);
+  }
 }
