@@ -67,4 +67,6 @@ function robotstxt_update_6100() {
   foreach ($perms as $key => $value) {
     db_query("UPDATE {permission} SET perm = '%s' WHERE rid = %d", $value, $key);
   }
+
+  return $ret;
 }
