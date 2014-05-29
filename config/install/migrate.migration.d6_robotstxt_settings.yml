@@ -1,0 +1,10 @@
+id: d6_robotstxt_settings
+source:
+  plugin: variable
+  variables:
+    - robotstxt
+process:
+  content: robotstxt
+destination:
+  plugin: d8_config
+  config_name: robotstxt.settings

@@ -43,8 +43,8 @@ A: Yes it can! In the .htaccess file of your Drupal's root directory, add the
    following two lines to the mod_rewrite section, immediately after the line
    that says "RewriteEngine on":
 
-     # Add redirection for the robots.txt path for use with the RobotsTxt module.
-     RewriteRule ^(robots.txt)$ index.php?q=$1
+   # Add redirection for the robots.txt path for use with the RobotsTxt module.
+   RewriteRule ^(robots.txt)$ index.php?q=$1
 
 
 KNOWN ISSUES
@@ -61,4 +61,3 @@ HOW CAN YOU CONTRIBUTE?
 
 - Report any bugs, feature requests, etc. in the issue tracker.
   http://drupal.org/project/issues/robotstxt
-
