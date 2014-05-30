@@ -13,10 +13,12 @@ use Drupal\Core\Routing\RequestHelper;
 function robotstxt_install() {
   $content = '';
 
+  // List of candidates for import.
   $files = array(
     DRUPAL_ROOT . '/robots.txt',
     drupal_get_path('module', 'robotstxt') . '/robots.txt',
   );
+
   foreach ($files as $file) {
     if (file_exists($file) && is_readable($file)) {
       $content = file_get_contents($file);
