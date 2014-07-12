@@ -9,6 +9,11 @@ namespace Drupal\robotstxt\Tests;
 
 use Drupal\simpletest\WebTestBase;
 
+/**
+ * Tests basic functionality of configured robots.txt files.
+ *
+ * @group Robots.txt
+ */
 class RobotsTxtBasicTest extends WebTestBase {
 
   /**
@@ -17,17 +22,6 @@ class RobotsTxtBasicTest extends WebTestBase {
    * @var array
    */
   public static $modules = array('robotstxt', 'node');
-
-  /**
-   * Test info.
-   */
-  public static function getInfo() {
-    return array(
-      'name' => 'Robots.txt tests',
-      'description' => 'Tests basic functionality of configured robots.txt files.',
-      'group' => 'Robots.txt',
-    );
-  }
 
   /**
    * Checks that an administrator can view the configuration page.
