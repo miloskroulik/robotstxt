@@ -20,15 +20,3 @@ function robotstxt_help($route_name, RouteMatchInterface $route_match) {
       break;
   }
 }
-
-/**
- * Implements hook_permission().
- */
-function robotstxt_permission() {
-  return array(
-    'administer robots.txt' => array(
-      'title' => t('Administer robots.txt'),
-      'description' => t('Perform maintenance tasks for robots.txt.'),
-    ),
-  );
-}
