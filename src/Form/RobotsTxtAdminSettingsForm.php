@@ -50,7 +50,7 @@ class RobotsTxtAdminSettingsForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     \Drupal::config('robotstxt.settings')
-      ->set('content', $form_state['values']['robotstxt_content'])
+      ->set('content', $form_state->getValue('robotstxt_content'))
       ->save();
   }
 
