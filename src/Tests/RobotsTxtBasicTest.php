@@ -28,8 +28,8 @@ class RobotsTxtBasicTest extends WebTestBase {
    */
   public function testRobotsTxtAdminAccess() {
     // Create user.
-    $admin_user = $this->drupalCreateUser(array('administer robots.txt'));
-    $this->drupalLogin($admin_user);
+    $this->admin_user = $this->drupalCreateUser(array('administer robots.txt'));
+    $this->drupalLogin($this->admin_user);
     $this->drupalGet('admin/config/search/robotstxt');
 
     $this->assertFieldById('edit-robotstxt-content', NULL, 'The textarea for configuring robots.txt is shown.');
@@ -41,8 +41,8 @@ class RobotsTxtBasicTest extends WebTestBase {
    */
   public function testRobotsTxtUserNoAccess() {
     // Create user.
-    $auth_user = $this->drupalCreateUser(array('access content'));
-    $this->drupalLogin($auth_user);
+    $this->normal_user = $this->drupalCreateUser(array('access content'));
+    $this->drupalLogin($this->normal_user);
     $this->drupalGet('admin/config/search/robotstxt');
 
     $this->assertNoFieldById('edit-robotstxt-content', NULL, 'The textarea for configuring robots.txt is not shown for users without appropriate permissions.');
@@ -72,8 +72,8 @@ class RobotsTxtBasicTest extends WebTestBase {
     }
 
     // Create user.
-    $admin_user = $this->drupalCreateUser(array('administer robots.txt'));
-    $this->drupalLogin($admin_user);
+    $this->admin_user = $this->drupalCreateUser(array('administer robots.txt'));
+    $this->drupalLogin($this->admin_user);
     $this->drupalGet('admin/config/search/robotstxt');
 
     $test_string = $this->randomName();
