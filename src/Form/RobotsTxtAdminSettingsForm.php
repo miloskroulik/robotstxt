@@ -7,14 +7,14 @@
 
 namespace Drupal\robotstxt\Form;
 
-use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\String;
 
 /**
  * Configure robotstxt settings for this site.
  */
-class RobotsTxtAdminSettingsForm extends FormBase {
+class RobotsTxtAdminSettingsForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
@@ -56,7 +56,8 @@ class RobotsTxtAdminSettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    \Drupal::config('robotstxt.settings')
+    $config = $this->config('robotstxt.settings');
+    $config
       ->set('content', $form_state->getValue('robotstxt_content'))
       ->save();
   }

@@ -27,7 +27,7 @@ function robotstxt_install() {
     }
   }
 
-  \Drupal::config('robotstxt.settings')->set('content', $content)->save();
+  \Drupal::configFactory()->getEditable('robotstxt.settings')->set('content', $content)->save();
 }
 
 /**
