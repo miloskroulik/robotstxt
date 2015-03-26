@@ -8,3 +8,6 @@ process:
 destination:
   plugin: d8_config
   config_name: robotstxt.settings
+dependencies:
+  module:
+    - robotstxt
