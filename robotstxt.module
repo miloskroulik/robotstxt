@@ -17,7 +17,7 @@ function robotstxt_help($route_name, RouteMatchInterface $route_match) {
         drupal_set_message(t('One or more problems have been detected with the RobotsTxt configuration. Check the <a href="@status">status report</a> for more information.', array('@status' => Url::fromRoute('system.status'))), 'warning');
       }
       // Use base_path() or we may get an URL like "/en/robots.txt" and "/de/robots.txt" on sites with URL language negotiation.
-      return t('See <a href="http://www.robotstxt.org/">http://www.robotstxt.org/</a> for more information concerning how to write your <a href="@robotstxt">robots.txt</a> file.', array('@robotstxt' => Url::fromUri('base://robots.txt')));
+      return t('See <a href="http://www.robotstxt.org/">http://www.robotstxt.org/</a> for more information concerning how to write your <a href="@robotstxt">robots.txt</a> file.', array('@robotstxt' => Url::fromUri('base://robots.txt')->toString()));
       break;
   }
 }
