@@ -9,7 +9,6 @@ namespace Drupal\robotstxt\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Component\Utility\String;
 
 /**
  * Configure robotstxt settings for this site.
