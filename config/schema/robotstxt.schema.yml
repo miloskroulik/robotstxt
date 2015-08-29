@@ -1,7 +1,7 @@
 # Schema for the configuration files of the robotstxt module.
 
 robotstxt.settings:
-  type: mapping
+  type: config_object
   label: 'RobotsTxt settings'
   mapping:
     content:
