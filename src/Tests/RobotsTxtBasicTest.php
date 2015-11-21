@@ -95,7 +95,7 @@ class RobotsTxtBasicTest extends WebTestBase {
    * @return bool
    *   Returns TRUE if a local robots.txt file is found.
    */
-  private function robotsTxtFileExists() {
+  protected function robotsTxtFileExists() {
     $exists = file_exists(DRUPAL_ROOT . '/robots.txt');
     if ($exists) {
       $this->error(sprintf('Unable to proceed with configured robots.txt tests: A local file already exists at %s, so the menu override in this module will never run.', DRUPAL_ROOT . '/robots.txt'));
