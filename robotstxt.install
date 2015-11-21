@@ -48,7 +48,8 @@ function robotstxt_requirements($phase) {
         );
       }
 
-      // Webservers prefer the robots.txt file on disk and does not allow menu path overwrite.
+      // Webservers prefer the robots.txt file on disk and does not allow menu
+      // path overwrite.
       if (file_exists(DRUPAL_ROOT . '/robots.txt')) {
         $requirements['robotstxt_file'] = array(
           'title' => t('RobotsTxt'),
