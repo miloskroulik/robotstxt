@@ -50,10 +50,10 @@ Q: Does this module work together with Drupal Core "Fast 404 pages" feature?
 A: Yes, but you need to add robots.txt to the 'exclude_paths' of your settings.php.
    
    Default Drupal:
-   $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)\//';
+   $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
 
    Drupal with RobotsTxt module:
-   $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)\/|(?:robots.txt)/';
+   $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\/|(?:robots.txt)/';
 
 Q: How can I install the module with custom default robots.txt?
 A: The module allows adding a default.robots.txt to the defaults folder.
