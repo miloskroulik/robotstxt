@@ -24,16 +24,6 @@ class RobotsTxtBasicTest extends WebTestBase {
   public static $modules = array('robotstxt', 'node');
 
   /**
-   * {@inheritdoc}
-   */
-  protected function setUp() {
-    parent::setUp();
-
-    // Remove the robots.txt from Drupal web root or tests are failing.
-    file_unmanaged_delete(DRUPAL_ROOT . '/robots.txt');
-  }
-
-  /**
    * Checks that an administrator can view the configuration page.
    */
   public function testRobotsTxtAdminAccess() {
