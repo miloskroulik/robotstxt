@@ -1,5 +1,5 @@
 id: d6_robotstxt_settings
-label: robots.txt 6 configuration
+label: RobotsTxt 6 configuration
 migration_tags:
   - Drupal 6
 source:

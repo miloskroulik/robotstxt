@@ -1,5 +1,5 @@
 id: d7_robotstxt_settings
-label: robots.txt 7 configuration
+label: RobotsTxt 7 configuration
 migration_tags:
   - Drupal 7
 source:
