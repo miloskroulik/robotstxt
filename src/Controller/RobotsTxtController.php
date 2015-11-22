@@ -22,7 +22,7 @@ class RobotsTxtController {
    *   The robots.txt file as a response object with 'text/plain' content type.
    */
   public function content() {
-    $content = array();
+    $content = [];
     $content[] = \Drupal::config('robotstxt.settings')->get('content');
 
     // Hook other modules for adding additional lines.
@@ -35,7 +35,7 @@ class RobotsTxtController {
     $content = array_filter($content);
     $content = implode("\n", $content);
 
-    return new Response($content, 200, array('Content-Type' => 'text/plain'));
+    return new Response($content, 200, ['Content-Type' => 'text/plain']);
   }
 
 }

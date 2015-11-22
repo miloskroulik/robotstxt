@@ -14,11 +14,11 @@ function robotstxt_install() {
   $content = '';
 
   // List of candidates for import.
-  $files = array(
+  $files = [
     DRUPAL_ROOT . '/robots.txt',
     DRUPAL_ROOT . '/sites/default/default.robots.txt',
     drupal_get_path('module', 'robotstxt') . '/robots.txt',
-  );
+  ];
 
   foreach ($files as $file) {
     if (file_exists($file) && is_readable($file)) {
@@ -34,28 +34,28 @@ function robotstxt_install() {
  * Implements hook_requirements().
  */
 function robotstxt_requirements($phase) {
-  $requirements = array();
+  $requirements = [];
 
   switch ($phase) {
     case 'runtime':
       // Module cannot work without Clean URLs.
       $request = \Drupal::request();
       if (!RequestHelper::isCleanUrl($request)) {
-        $requirements['robotstxt_cleanurl'] = array(
+        $requirements['robotstxt_cleanurl'] = [
           'title' => t('RobotsTxt'),
           'severity' => REQUIREMENT_ERROR,
           'value' => t('Clean URLs are mandatory for this module.'),
-        );
+        ];
       }
 
       // Webservers prefer the robots.txt file on disk and does not allow menu
       // path overwrite.
       if (file_exists(DRUPAL_ROOT . '/robots.txt')) {
-        $requirements['robotstxt_file'] = array(
+        $requirements['robotstxt_file'] = [
           'title' => t('RobotsTxt'),
           'severity' => REQUIREMENT_WARNING,
           'value' => t('RobotsTxt module works only if you remove the existing robots.txt file in your website root.'),
-        );
+        ];
       }
   }
   return $requirements;

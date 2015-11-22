@@ -13,10 +13,10 @@ function robotstxt_help($route_name, RouteMatchInterface $route_match) {
 
     case 'robotstxt.admin_settings_form':
       if (file_exists(DRUPAL_ROOT . '/robots.txt')) {
-        drupal_set_message(t('One or more problems have been detected with the RobotsTxt configuration. Check the <a href=":status">status report</a> for more information.', array(':status' => \Drupal::url('system.status'))), 'warning');
+        drupal_set_message(t('One or more problems have been detected with the RobotsTxt configuration. Check the <a href=":status">status report</a> for more information.', [':status' => \Drupal::url('system.status')]), 'warning');
       }
       // Use base_path() or we may get an URL like "/en/robots.txt" and
       // "/de/robots.txt" on sites with URL language negotiation.
-      return t('See <a href="http://www.robotstxt.org/">http://www.robotstxt.org/</a> for more information concerning how to write your <a href=":robotstxt">robots.txt</a> file.', array(':robotstxt' => Url::fromUri('base://robots.txt')->toString()));
+      return t('See <a href="http://www.robotstxt.org/">http://www.robotstxt.org/</a> for more information concerning how to write your <a href=":robotstxt">robots.txt</a> file.', [':robotstxt' => Url::fromUri('base://robots.txt')->toString()]);
   }
 }

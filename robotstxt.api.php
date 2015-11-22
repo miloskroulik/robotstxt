@@ -12,8 +12,8 @@
  *   An array of strings to add to the robots.txt.
  */
 function hook_robotstxt() {
-  return array(
+  return [
     'Disallow: /foo',
     'Disallow: /bar',
-  );
+  ];
 }

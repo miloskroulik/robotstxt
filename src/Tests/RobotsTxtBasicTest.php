@@ -21,14 +21,14 @@ class RobotsTxtBasicTest extends WebTestBase {
    *
    * @var array
    */
-  public static $modules = array('robotstxt', 'node');
+  public static $modules = ['robotstxt', 'node'];
 
   /**
    * Checks that an administrator can view the configuration page.
    */
   public function testRobotsTxtAdminAccess() {
     // Create user.
-    $this->admin_user = $this->drupalCreateUser(array('administer robots.txt'));
+    $this->admin_user = $this->drupalCreateUser(['administer robots.txt']);
     $this->drupalLogin($this->admin_user);
     $this->drupalGet('admin/config/search/robotstxt');
 
@@ -41,7 +41,7 @@ class RobotsTxtBasicTest extends WebTestBase {
    */
   public function testRobotsTxtUserNoAccess() {
     // Create user.
-    $this->normal_user = $this->drupalCreateUser(array('access content'));
+    $this->normal_user = $this->drupalCreateUser(['access content']);
     $this->drupalLogin($this->normal_user);
     $this->drupalGet('admin/config/search/robotstxt');
 
@@ -72,12 +72,12 @@ class RobotsTxtBasicTest extends WebTestBase {
     }
 
     // Create user.
-    $this->admin_user = $this->drupalCreateUser(array('administer robots.txt'));
+    $this->admin_user = $this->drupalCreateUser(['administer robots.txt']);
     $this->drupalLogin($this->admin_user);
     $this->drupalGet('admin/config/search/robotstxt');
 
     $test_string = $this->randomMachineName();
-    $this->drupalPostForm('admin/config/search/robotstxt', array('robotstxt_content' => $test_string), t('Save'));
+    $this->drupalPostForm('admin/config/search/robotstxt', ['robotstxt_content' => $test_string], t('Save'));
 
     $this->drupalLogout();
     $this->drupalGet('robots.txt');
