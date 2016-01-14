@@ -37,7 +37,7 @@ class RobotsTxtAdminSettingsForm extends ConfigFormBase {
 
     $form['robotstxt_content'] = [
       '#type' => 'textarea',
-      '#title' => t('Contents of robots.txt'),
+      '#title' => $this->t('Contents of robots.txt'),
       '#default_value' => $config->get('content'),
       '#cols' => 60,
       '#rows' => 20,
@@ -45,7 +45,7 @@ class RobotsTxtAdminSettingsForm extends ConfigFormBase {
 
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => t('Save'),
+      '#value' => $this->t('Save'),
     ];
 
     return $form;
