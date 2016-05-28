@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\robotstxt\RobotstxtController.
- */
-
 namespace Drupal\robotstxt\Controller;
 
 use Drupal\Core\Controller\ControllerBase;

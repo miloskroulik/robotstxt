@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Definition of Drupal\robotstxt\Tests\RobotsTxtBasicTest.
- */
-
 namespace Drupal\robotstxt\Tests;
 
 use Drupal\simpletest\WebTestBase;

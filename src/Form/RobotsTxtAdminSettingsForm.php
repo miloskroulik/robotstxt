@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\robotstxt\Form\RobotsTxtAdminSettingsForm.
- */
-
 namespace Drupal\robotstxt\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
