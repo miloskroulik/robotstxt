@@ -28,7 +28,6 @@ class RobotsTxtBasicTest extends WebTestBase {
     $this->drupalGet('admin/config/search/robotstxt');
 
     $this->assertFieldById('edit-robotstxt-content', NULL, 'The textarea for configuring robots.txt is shown.');
-
   }
 
   /**
@@ -50,9 +49,7 @@ class RobotsTxtBasicTest extends WebTestBase {
   public function testRobotsTxtPath() {
     $this->drupalGet('robots-test.txt');
     $this->assertResponse(200, 'No local robots.txt file was detected, and an anonymous user is delivered content at the /robots.txt path.');
-    $header = $this->drupalGetHeader('Content-Type');
-    // Note: the header may have charset appended.
-    $this->assertIdentical(strpos($header, 'text/plain'), 0, 'The robots.txt file was served with header Content-Type: text/plain');
+    $this->assertHeader('Content-Type', 'text/plain; charset=UTF-8', 'The robots.txt file was served with header Content-Type: "text/plain; charset=UTF-8"');
   }
 
   /**
@@ -70,10 +67,8 @@ class RobotsTxtBasicTest extends WebTestBase {
     $this->drupalLogout();
     $this->drupalGet('robots-test.txt');
     $this->assertResponse(200, 'No local robots.txt file was detected, and an anonymous user is delivered content at the /robots.txt path.');
-    $header = $this->drupalGetHeader('Content-Type');
-    // Note: the header may have charset appended.
-    $this->assertIdentical(strpos($header, 'text/plain'), 0, 'The robots.txt file was served with header Content-Type: text/plain');
-    $content = $this->drupalGetContent();
+    $this->assertHeader('Content-Type', 'text/plain; charset=UTF-8', 'The robots.txt file was served with header Content-Type: "text/plain; charset=UTF-8"');
+    $content = $this->getRawContent();
     $this->assertTrue($content == $test_string, sprintf('Test string [%s] is displayed in the configured robots.txt file [%s].', $test_string, $content));
   }
 
