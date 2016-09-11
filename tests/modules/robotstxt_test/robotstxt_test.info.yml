@@ -1,4 +1,4 @@
-name: Robotstxt module tests
+name: 'Robotstxt module tests'
 type: module
 description: 'Support module for robotstxt module testing.'
 package: Testing
