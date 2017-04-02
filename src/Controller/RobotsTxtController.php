@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Provides output robots.txt output.
  */
-class RobotsTxtController {
+class RobotsTxtController extends ControllerBase {
 
   /**
    * Serves the configured robots.txt file.

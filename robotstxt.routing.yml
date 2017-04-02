@@ -7,7 +7,7 @@ robotstxt.admin_settings_form:
     _permission: 'administer robots.txt'
 
 robotstxt.content:
-  path: 'robots.txt'
+  path: '/robots.txt'
   defaults:
     _controller: '\Drupal\robotstxt\Controller\RobotsTxtController::content'
   requirements:
