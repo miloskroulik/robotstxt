@@ -62,7 +62,7 @@ class RobotsTxtBasicTest extends WebTestBase {
     $this->drupalGet('admin/config/search/robotstxt');
 
     $test_string = "# SimpleTest {$this->randomMachineName()}";
-    $this->drupalPostForm('admin/config/search/robotstxt', ['robotstxt_content' => $test_string], t('Save'));
+    $this->drupalPostForm('admin/config/search/robotstxt', ['robotstxt_content' => $test_string], t('Save configuration'));
 
     $this->drupalLogout();
     $this->drupalGet('robots-test.txt');
