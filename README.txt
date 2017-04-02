@@ -63,6 +63,21 @@ A: The module allows adding a default.robots.txt to the defaults folder.
    2. Save your custom robots.txt to "/sites/default/default.robots.txt"
    3. Run the module installation.
 
+Q: Is there a way to automatically delete robots.txt provided by Drupal core?
+A: Yes, if you are using composer to build the site, you can add the following
+   section into the composer.json on your root folder:
+   "scripts": {
+       "post-install-cmd": [
+           "rm web/robots.txt"
+       ],
+       "post-update-cmd": [
+           "rm web/robots.txt"
+       ]
+   }
+   The script will run every time you do a composer install or composer update.
+
+   Please note: Only scripts defined on composer.json on the root folder will be
+   executed. See https://getcomposer.org/doc/articles/scripts.md
 
 KNOWN ISSUES
 ------------
