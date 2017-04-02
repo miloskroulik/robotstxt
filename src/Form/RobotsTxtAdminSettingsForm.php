@@ -38,12 +38,7 @@ class RobotsTxtAdminSettingsForm extends ConfigFormBase {
       '#rows' => 20,
     ];
 
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Save'),
-    ];
-
-    return $form;
+    return parent::buildForm($form, $form_state);
   }
 
   /**
