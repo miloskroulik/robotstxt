@@ -68,10 +68,10 @@ A: Yes, if you are using composer to build the site, you can add the following
    section into the composer.json on your root folder:
    "scripts": {
        "post-install-cmd": [
-           "rm web/robots.txt"
+           "rm robots.txt"
        ],
        "post-update-cmd": [
-           "rm web/robots.txt"
+           "rm robots.txt"
        ]
    }
    The script will run every time you do a composer install or composer update.
