@@ -54,6 +54,8 @@ class RobotsTxtAdminSettingsForm extends ConfigFormBase {
     $config
       ->set('content', $form_state->getValue('robotstxt_content'))
       ->save();
+
+    parent::submitForm($form, $form_state);
   }
 
 }
