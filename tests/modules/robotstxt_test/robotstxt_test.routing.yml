@@ -3,4 +3,5 @@ robotstxt_test.content:
   defaults:
     _controller: '\Drupal\robotstxt\Controller\RobotsTxtController::content'
   requirements:
+    # The robots-text.txt page should be opened for all.
     _access: 'TRUE'

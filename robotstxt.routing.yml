@@ -11,4 +11,5 @@ robotstxt.content:
   defaults:
     _controller: '\Drupal\robotstxt\Controller\RobotsTxtController::content'
   requirements:
+    # The robots.txt page should be opened for all.
     _access: 'TRUE'
