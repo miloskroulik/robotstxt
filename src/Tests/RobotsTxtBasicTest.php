@@ -53,6 +53,15 @@ class RobotsTxtBasicTest extends WebTestBase {
   }
 
   /**
+   * Test that the robots.txt path delivers content the appropriate cache tags.
+   */
+  public function testRobotsTxtCacheTags() {
+    $this->drupalGet('robots-test.txt');
+    $this->assertResponse(200);
+    $this->assertCacheTag('robotstxt');
+  }
+
+  /**
    * Checks that a configured robots.txt file is delivered as configured.
    */
   public function testRobotsTxtConfigureRobotsTxt() {
