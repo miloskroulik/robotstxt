@@ -64,15 +64,30 @@ A: The module allows adding a default.robots.txt to the defaults folder.
    3. Run the module installation.
 
 Q: Is there a way to automatically delete robots.txt provided by Drupal core?
-A: Yes, if you are using composer to build the site, you can add the following
-   section into the composer.json on your root folder:
+A: Yes, if you are using composer to build the site, you can add a command
+   into your composer.json that will make sure the file gets deleted. Depending
+   on your project's structure, you will need to add one of the two following
+   sections into the composer.json of your root folder:
+
+   If the drupal site root folder is the same as your repository root folder:
 
    "scripts": {
        "post-install-cmd": [
-           "rm robots.txt"
+           "test -e robots.txt && rm robots.txt || echo robots already deleted"
        ],
        "post-update-cmd": [
-           "rm robots.txt"
+           "test -e robots.txt && rm robots.txt || echo robots already deleted"
+       ]
+   }
+
+   or, if the drupal site root folder is web/ :
+
+   "scripts": {
+       "post-install-cmd": [
+           "test -e web/robots.txt && rm web/robots.txt || echo robots already deleted"
+       ],
+       "post-update-cmd": [
+           "test -e web/robots.txt && rm web/robots.txt || echo robots already deleted"
        ]
    }
 
