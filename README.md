@@ -82,9 +82,9 @@ A: Yes it can! In the .htaccess file of your Drupal's root directory, add the
    following line to the mod_rewrite section, immediately after the line
    that says "RewriteEngine on":
 
-````
+```
 RewriteRule ^(robots.txt)$ index.php?q=$1
-````
+```
 
 
 Q: Does this module work together with Drupal Core "Fast 404 pages" feature?
@@ -93,14 +93,16 @@ A: Yes, but you need to add robots.txt to the 'exclude_paths' of your
    settings.php.
 
 * Default Drupal Fast404 configuration (in settings.php):
-````
-$config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-````
+```
+$config['system.performance']['fast_404']['exclude_paths'] =
+   '/\/(?:styles)|(?:system\/files)\//';
+```
 
 * New Drupal Fast404 configuration (in settings.php) to allow RobotsTxt module:
-````
-$config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\/|(?:robots.txt)/';
-````
+```
+$config['system.performance']['fast_404']['exclude_paths'] =
+  '/\/(?:styles)|(?:system\/files)\/|(?:robots.txt)/';
+```
 
 
 Q: How can I install the module with custom default robots.txt?
@@ -121,30 +123,30 @@ A: Yes, if you are using composer to build the site, you can add a command
    sections into the composer.json of your root folder:
 
    * If the drupal site root folder is the same as your repository root folder:
-    ````
-    "scripts": {
-       "post-install-cmd": [
-           "test -e robots.txt && rm robots.txt || echo robots already deleted"
-       ],
-       "post-update-cmd": [
-           "test -e robots.txt && rm robots.txt || echo robots already deleted"
-       ]
-    }
-    ````
+```
+"scripts": {
+   "post-install-cmd": [
+      "test -e robots.txt && rm robots.txt || echo robots.txt is setup"
+   ],
+   "post-update-cmd": [
+      "test -e robots.txt && rm robots.txt || echo robots.txt is setup"
+   ]
+}
+```
 
        or,
 
    * if the drupal site root folder is web/ :
-    ````
-    "scripts": {
-       "post-install-cmd": [
-           "test -e web/robots.txt && rm web/robots.txt || echo robots already deleted"
-       ],
-       "post-update-cmd": [
-           "test -e web/robots.txt && rm web/robots.txt || echo robots already deleted"
-       ]
-    }
-    ```
+```
+"scripts": {
+   "post-install-cmd": [
+      "test -e web/robots.txt && rm web/robots.txt || echo robots is setup"
+   ],
+   "post-update-cmd": [
+      "test -e web/robots.txt && rm web/robots.txt || echo robots is setup"
+   ]
+}
+```
 
 The script will run every time you do a composer install or composer update.
 
@@ -162,4 +164,7 @@ MAINTAINERS
 
 This project has been sponsored by:
  * FOUR KITCHENS
-   Our team creates digital experiences that delight, scale, and deliver measurable results. Whether you need an accessibility audit, a dedicated support team, or a world-class digital experience platform, the Web Chefs have you covered. Visit https://www.fourkitchens.com to learn more.
+   Our team creates digital experiences that delight, scale, and deliver
+   measurable results. Whether you need an accessibility audit, a dedicated
+   support team, or a world-class digital experience platform, the Web Chefs
+   have you covered. Visit https://www.fourkitchens.com to learn more.

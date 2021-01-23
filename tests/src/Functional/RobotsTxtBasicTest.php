@@ -3,6 +3,7 @@
 namespace Drupal\Tests\robotstxt\Functional;
 
 use Drupal\Tests\BrowserTestBase;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Tests basic functionality of configured robots.txt files.
@@ -10,6 +11,8 @@ use Drupal\Tests\BrowserTestBase;
  * @group Robots.txt
  */
 class RobotsTxtBasicTest extends BrowserTestBase {
+
+  use StringTranslationTrait;
 
   /**
    * Provides the default theme.
@@ -102,7 +105,7 @@ class RobotsTxtBasicTest extends BrowserTestBase {
     $this->drupalGet('admin/config/search/robotstxt');
 
     $test_string = "# SimpleTest {$this->randomMachineName()}";
-    $this->submitForm(['robotstxt_content' => $test_string], t('Save configuration'));
+    $this->submitForm(['robotstxt_content' => $test_string], $this->t('Save configuration'));
 
     $this->drupalLogout();
     $this->drupalGet('robots-test.txt');
