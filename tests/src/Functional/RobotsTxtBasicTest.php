@@ -26,7 +26,7 @@ class RobotsTxtBasicTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['robotstxt', 'node', 'robotstxt_test'];
+  protected static $modules = ['robotstxt', 'node', 'robotstxt_test'];
 
   /**
    * User with proper permissions for module configuration.
@@ -64,11 +64,11 @@ class RobotsTxtBasicTest extends BrowserTestBase {
     $this->drupalLogin($this->normalUser);
     $this->drupalGet('admin/config/search/robotstxt');
 
-    $this->assertResponse(403);
+    $this->assertSession()->statusCodeEquals(403);
 
     // The textarea for configuring robots.txt is not shown for users without
     // appropriate permissions.
-    $this->assertNoFieldById('edit-robotstxt-content', NULL);
+    $this->assertSession()->fieldNotExists('edit-robotstxt-content');
   }
 
   /**
@@ -79,11 +79,11 @@ class RobotsTxtBasicTest extends BrowserTestBase {
 
     // No local robots.txt file was detected, and an anonymous user is delivered
     // content at the /robots.txt path.
-    $this->assertResponse(200);
+    $this->assertSession()->statusCodeEquals(200);
 
     // The robots.txt file was served with header
     // Content-Type: "text/plain; charset=UTF-8".
-    $this->assertHeader('Content-Type', 'text/plain; charset=UTF-8');
+    $this->assertSession()->responseHeaderEquals('Content-Type', 'text/plain; charset=UTF-8');
   }
 
   /**
@@ -91,8 +91,8 @@ class RobotsTxtBasicTest extends BrowserTestBase {
    */
   public function testRobotsTxtCacheTags() {
     $this->drupalGet('robots-test.txt');
-    $this->assertResponse(200);
-    $this->assertCacheTag('robotstxt');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->responseHeaderContains('X-Drupal-Cache-Tags', 'robotstxt');
   }
 
   /**
@@ -112,11 +112,11 @@ class RobotsTxtBasicTest extends BrowserTestBase {
 
     // No local robots.txt file was detected, and an anonymous user is delivered
     // content at the /robots.txt path.
-    $this->assertResponse(200);
+    $this->assertSession()->statusCodeEquals(200);
 
     // The robots.txt file was served with header
     // Content-Type: "text/plain; charset=UTF-8".
-    $this->assertHeader('Content-Type', 'text/plain; charset=UTF-8');
+    $this->assertSession()->responseHeaderEquals('Content-Type', 'text/plain; charset=UTF-8');
     $content = $this->getSession()->getPage()->getContent();
     $this->assertTrue($content == $test_string, sprintf('Test string [%s] is displayed in the configured robots.txt file [%s].', $test_string, $content));
   }
