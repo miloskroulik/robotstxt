@@ -1,4 +1,4 @@
-# RobotsTxt
+# RobotsTxt <!-- omit in toc -->
 
 Use this module when you are running multiple Drupal sites from a single
 code base (multisite) and you need a different robots.txt file for each
@@ -14,12 +14,13 @@ Submit bug reports and feature suggestions, or track changes in the
 
 ## Table of contents
 
-- Requirements
-- Installation
-- Configuration
-- Troubleshooting
-- Frequently Asked Questions (FAQ)
-- Maintainers
+- [Table of contents](#table-of-contents)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Troubleshooting](#troubleshooting)
+- [Frequently asked questions](#frequently-asked-questions)
+- [Maintainers](#maintainers)
 
 
 ## Requirements
