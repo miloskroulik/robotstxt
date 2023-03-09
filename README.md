@@ -61,7 +61,7 @@ If the /robots.txt path is not returning your configured file, check:
    following line to the mod_rewrite section, immediately after the line
    that says "RewriteEngine on":
 
-```
+```.htaccess
 RewriteRule ^(robots.txt)$ index.php?q=$1
 ```
 
@@ -70,14 +70,16 @@ RewriteRule ^(robots.txt)$ index.php?q=$1
 **A:** Yes, but you need to add robots.txt to the 'exclude_paths' of your
    settings.php.
 
-* Default Drupal Fast404 configuration (in settings.php):
-```
+Default Drupal Fast404 configuration (in settings.php):
+
+```php
 $config['system.performance']['fast_404']['exclude_paths'] =
    '/\/(?:styles)|(?:system\/files)\//';
 ```
 
 New Drupal Fast404 configuration (in settings.php) to allow RobotsTxt module:
-```
+
+```php
 $config['system.performance']['fast_404']['exclude_paths'] =
   '/\/(?:styles)|(?:system\/files)\/|(?:robots.txt)/';
 ```
@@ -99,7 +101,8 @@ defaults folder.
    sections into the composer.json of your root folder:
 
    If the drupal site root folder is the same as your repository root folder:
-```
+
+```json
 "scripts": {
    "post-install-cmd": [
       "test -e robots.txt && rm robots.txt || echo robots.txt is setup"
@@ -113,7 +116,8 @@ defaults folder.
        or,
 
    if the drupal site root folder is web/ :
-```
+
+```json
 "scripts": {
    "post-install-cmd": [
       "test -e web/robots.txt && rm web/robots.txt || echo robots is setup"
@@ -123,6 +127,7 @@ defaults folder.
    ]
 }
 ```
+
 The script will run every time you do a composer install or composer update.
 
 Please note: Only scripts defined on composer.json on the root folder will be
@@ -137,6 +142,7 @@ executed. See `https://getcomposer.org/doc/articles/scripts.md`
 - David Strauss - [david-strauss](https://www.drupal.org/u/david-strauss)
 
 This project has been sponsored by:
+
 - FOUR KITCHENS
 Our team creates digital experiences that delight, scale, and deliver
 measurable results. Whether you need an accessibility audit, a dedicated
