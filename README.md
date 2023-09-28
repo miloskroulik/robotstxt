@@ -41,6 +41,19 @@ information, see
 Configure the robots.txt content in Administration » Configuration »
 Search and metadata » RobotsTxt.
 
+ * If you use Drupal Scaffolding, you need to update the composer.json file to
+   ignore robots.txt. In your composer.json file, add (or update) the
+   "file-mapping" section under "extras | drupal-scaffold":
+   ```json
+        "drupal-scaffold": {
+            ...
+            "file-mapping": {
+                "[web-root]/robots.txt": false
+            }
+        }
+   ```
+   This will make composer ignore the robots.txt file
+
 
 ## Troubleshooting
 
