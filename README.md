@@ -11,6 +11,11 @@ For a full description of the module, visit the
 Submit bug reports and feature suggestions, or track changes in the
 [issue queue](https://www.drupal.org/project/issues/robotstxt).
 
+For developers, you can automatically add paths to the robots.txt file by
+implementing hook_robotstxt(). See
+[robotstxt.api.php](https://git.drupalcode.org/project/robotstxt/blob/8.x-1.x/robotstxt.api.php)
+for more documentation.
+
 
 ## Table of contents
 
@@ -35,24 +40,31 @@ Install as you would normally install a contributed Drupal module. For further
 information, see
 [Installing Drupal Modules](https://www.drupal.org/docs/extending-drupal/installing-drupal-modules).
 
+Once you have the RobotsTxt modules installed, make sure to delete or rename
+the robots.txt file in the root of your Drupal installation. Otherwise, the
+module cannot receive requests for the /robots.txt path, your webserver will
+serve the static file first.
+
+If you use Drupal Scaffolding, you need to update the composer.json file to
+ignore robots.txt. In your composer.json file, add (or update) the
+"file-mapping" section under "extras | drupal-scaffold":
+
+```json
+     "drupal-scaffold": {
+         ...
+         "file-mapping": {
+             "[web-root]/robots.txt": false
+         }
+     }
+```
+
+This will make composer ignore the robots.txt file
+
 
 ## Configuration
 
 Configure the robots.txt content in Administration » Configuration »
 Search and metadata » RobotsTxt.
-
- * If you use Drupal Scaffolding, you need to update the composer.json file to
-   ignore robots.txt. In your composer.json file, add (or update) the
-   "file-mapping" section under "extras | drupal-scaffold":
-   ```json
-        "drupal-scaffold": {
-            ...
-            "file-mapping": {
-                "[web-root]/robots.txt": false
-            }
-        }
-   ```
-   This will make composer ignore the robots.txt file
 
 
 ## Troubleshooting
@@ -126,7 +138,7 @@ defaults folder.
 }
 ```
 
-       or,
+or,
 
    if the drupal site root folder is web/ :
 
