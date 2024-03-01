@@ -98,7 +98,7 @@ class RobotsTxtController extends ControllerBase implements ContainerInjectionIn
     if (!$context->isEmpty()) {
       $metadata = $context->pop();
       $metadata->addCacheTags(['robotstxt']);
-      $meta_data->addCacheContexts(['url.site']);
+      $metadata->addCacheContexts(['url.site']);
       $response->addCacheableDependency($metadata);
       $response->addAttachments($metadata->getAttachments());
     }
